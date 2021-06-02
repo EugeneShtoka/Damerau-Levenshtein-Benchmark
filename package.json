@@ -1,0 +1,26 @@
+{
+    "name": "damerau-levenshtein-benchmark",
+    "version": "1.0.0",
+    "description": "Benchmarking various implementations for Damerau–Levenshtein algorithm",
+    "main": "source/main.ts",
+    "bin": "build/main.js",
+    "scripts": {
+        "start": "ts-node source/main.ts"
+    },
+    "keywords": [
+        "Fuzzy string saerch",
+        "Damerau-Levenshtein",
+        "Benchmarking"
+    ],
+    "author": "Eugene Shtoka",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EugeneShtoka/Damerau-Levenshtein"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "14.0.13",
+        "ts-node": "8.10.2",
+        "typescript": "3.9.5"
+    }
+}   
