@@ -16,15 +16,15 @@ function limitedInternal(str1: string, str2: string, prefix1: number, prefix2: n
         return limitedInternal(str1, str2, --prefix1, --prefix2, limit);
     }
 
-    if (limit <= 0) {
+    if (limit === 0) {
         return Number.POSITIVE_INFINITY;
     }
 
     const skipLetters = prefix1 > 1 && prefix2 > 1 && str1[prefix1 - 2] === str2[prefix2 - 1] && str1[prefix1 - 1] === str2[prefix2 - 2] ? 2 : 1;
     const indices = [[prefix1, prefix2 - 1], [prefix1 - 1, prefix2]];
 
-    return 1 + indices.reduce(
-        (result, ind) => Math.min(result, limitedInternal(str1, str2, ind[0], ind[1], Math.min(result, limit) - 1)), 
-        limitedInternal(str1, str2, prefix1 - skipLetters, prefix2 - skipLetters, limit - 1)
+    return indices.reduce(
+        (result, ind) => Math.min(result, 1 + limitedInternal(str1, str2, ind[0], ind[1], Math.min(result, limit) - 1)),
+        1 + limitedInternal(str1, str2, prefix1 - skipLetters, prefix2 - skipLetters, limit - 1)
     );
 }

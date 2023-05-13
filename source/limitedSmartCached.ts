@@ -55,7 +55,7 @@ function limitedInternal(str1: string, str2: string, prefix1: number, prefix2: n
         return limitedSmartCachedWrapper(str1, str2, --prefix1, --prefix2, limit, cache);
     }
 
-    if (limit <= 0) {
+    if (limit === 0) {
         return Number.POSITIVE_INFINITY;
     }
 
@@ -63,7 +63,7 @@ function limitedInternal(str1: string, str2: string, prefix1: number, prefix2: n
     const indices = [[prefix1, prefix2 - 1], [prefix1 - 1, prefix2]];
 
     return 1 + indices.reduce(
-        (result, ind) => Math.min(result, limitedSmartCachedWrapper(str1, str2, ind[0], ind[1], Math.min(result, limit) - 1, cache)),
-        limitedSmartCachedWrapper(str1, str2, prefix1 - skipLetters, prefix2 - skipLetters, limit - 1, cache)
+        (result, ind) => Math.min(result, 1 + limitedSmartCachedWrapper(str1, str2, ind[0], ind[1], Math.min(result, limit) - 1, cache)),
+        1 + limitedSmartCachedWrapper(str1, str2, prefix1 - skipLetters, prefix2 - skipLetters, limit - 1, cache)
     );
 }
