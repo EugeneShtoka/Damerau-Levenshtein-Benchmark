@@ -2,10 +2,10 @@
     "name": "damerau-levenshtein-benchmark",
     "version": "1.0.0",
     "description": "Benchmarking various implementations for Damerau–Levenshtein algorithm",
-    "main": "source/main.ts",
+    "main": "src/main.ts",
     "bin": "build/main.js",
     "scripts": {
-        "start": "ts-node source/main.ts"
+        "start": "ts-node src/main.ts"
     },
     "keywords": [
         "Fuzzy string saerch",
